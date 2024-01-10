@@ -1,6 +1,5 @@
 const express = require ('express');
 const productController = require ('../controllers/productsController');
-const usersController = require ("../controllers/usersController")
 const router = express.Router();
 const multer = require("multer");
 const path = require("path");
@@ -20,8 +19,6 @@ const upload = multer({ storage });
 router.get("/",productController.home);
 router.get("/detallProduc", productController.detalleProducto);
 router.get('/carrito', productController.carrito)
-router.get('/register', usersController.register);
-router.get('/login', usersController.login);
 router.get("/newProduct", productController.nuevo);
 router.post("/newProduct", upload.single("imagen"), productController.nuevoProducto);
 router.get("/listaProductos", productController.listado);
