@@ -25,26 +25,22 @@
                 <div class="cuenta">
                     <h2>CREÁ TU CUENTA</h2>
                 </div>
-                <div class="botones">
-                    <div class="boton-face">
-                        <a href="www.facebook.com" class="botonface"><img src="/img/logo-facebook.png"
-                                alt="boton-face"></a>
-                    </div>
-                    <div class="boton-google">
-                        <a href="www.gmail.com" class="botongoogle"><img src="/img/logo-google.png"
-                                alt="boton-google"></a>
-                    </div>
-
+                <div class="errores">
+                    <% if(typeof(errors) != "undefined"){ %>
+                        <ul class="peligro-error">
+                            <% errors.forEach(error => { %>
+                                <li><%= error.msg %></li>
+                                <% }); %> 
+                        </ul>
+                    <% }; %> 
                 </div>
-                <div class="texto">
-                    <p> O usá tu mail como registro </p>
-                </div>
-                <form class="formulario">
-                    <div class="barra"><input class="barra1" type="text" name="nombre" placeholder="Nombre"></div>
-                    <div class="barra"><input class="barra3" type="text" name="usuario" placeholder="Usuario"></div>
-                    <div class="barra"><input class="barra2" type="email" name="email" placeholder="E-mail"></div>
-                    <div class="barra"><input class="barra3" type="password" name="contraseña" placeholder="Contraseña">
-                    </div>
+                <form class="formulario" method="POST" action="/register" enctype="multipart/form-data">
+                    <div class="barra"><input class="barra1" type="text" name="nombre" placeholder="Nombre" value="<%= typeof old != "undefined" ? old.nombre : "" %>"></div>
+                    <div class="barra"><input class="barra1" type="text" name="usuario" placeholder="Usuario" value="<%= typeof old != "undefined" ? old.usuario : "" %>"></div>
+                    <div class="barra"><input class="barra1" type="email" name="email" placeholder="E-mail" value="<%= typeof old != "undefined" ? old.email : "" %>"></div>
+                    <div class="barra"><input class="barra1" type="password" name="password" placeholder="Contraseña"></div>
+                    <div class="barra"><input class="barra1" type="password" name="repetir-password" placeholder="Repetir contraseña"></div>
+                    <div class="barra"><input class="barra2" type="file" name="imagen" placeholder="Imagen de perfil"></div>
                     <div class="registro"><input class="boton-registro" type="submit" value="REGISTRARME"></div>
                 </form>
             </div>

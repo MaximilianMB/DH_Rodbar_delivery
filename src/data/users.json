@@ -1,11 +1,34 @@
 [
-    {
-        "id": "1",
-        "nombre": "Maximiliano",
-        "apellido": "Barrientos",
-        "email": "maxi_1204@hotmail.com",
-        "contraseña": "",
-        "categoria": "administrador",
-        "imagen": ""
-    }
+  {
+    "nombre": "Maximiliano",
+    "usuario": "maximiliano1204",
+    "email": "maxi_1204@hotmail.com",
+    "password": "$2a$12$SCFrxQuAtLh668iBpN.1KOAXUP9mcFxKHMzGWqW8YXrcmP2aV8qJy",
+    "imagen": "",
+    "role": 1
+  },
+  {
+    "nombre": "Maximiliano",
+    "usuario": "maximiliano21",
+    "email": "maxi_1204@hotmail.com",
+    "password": "$2a$10$qe0QRa7Ic0.gOFfCsNCJruRYtqDBCTVx8DX5oI57BAsGm5DuciRZe",
+    "imagen": "usuario-1704880883907.jpg",
+    "rol": 2
+  },
+  {
+    "nombre": "Maximiliano Barrientos",
+    "usuario": "maximan1204",
+    "email": "maxi_1204@hotmail.com",
+    "contraseña": "$2a$10$dT6COsTr0OABJmjXrTYCNeUZP7W6HktJc5Rcv/lBjRs92i90iUnI.",
+    "imagen": "usuario-1704881024806.jpg",
+    "rol": 2
+  },
+  {
+    "nombre": "jesus",
+    "usuario": "jesus1204",
+    "email": "maxi_1204@hotmail.com",
+    "contraseña": "$2a$10$8QhgoVae3xdMWes0fPNUtOb6LwJvTkVFU3Jx8nF2jtWdDhfL0fYR2",
+    "imagen": "usuario-1704914477758.jpg",
+    "rol": 2
+  }
 ]

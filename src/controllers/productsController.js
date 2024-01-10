@@ -1,9 +1,6 @@
 const path = require('path');
 const fs = require("fs")
 const productsController = {
-    home: (req, res) => {
-        res.render(path.join(__dirname, "../view/products/index.ejs"));
-    },
     detalleProducto:  (req, res) => {
         res.render(path.join(__dirname, "../view/products/detallProduc.ejs"));
     },

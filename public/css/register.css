@@ -155,47 +155,45 @@ input.boton-gmail{
     font-weight: bold;
 }
 .formulario{
-    height: 55%;
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 .barra{
-    height: 20%;
+    height: 10%;
     display: flex;
     margin: auto;
+    align-items: center;
     width: 70%;
 }
 .barra1{
-    margin: auto;
+    margin: 0;
     width: 100%;
-    height: 65%;
+    height: 70%;
     font-size: 1rem;
     font-style: oblique;
     padding-left: 2%;
     background-color: #eee;
     border: none;
-    font-family: "BROTHER", sans-serif;
 }
 .barra2{
-    margin: auto;
+    margin: 0;
     width: 100%;
-    height: 65%;
+    height: 70%;
     font-size: 1rem;
     font-style: oblique;
-    padding-left: 2%;
     background-color: #eee;
     border: none;
     font-family: "BROTHER", sans-serif;
 }
-
-.barra3{
-    margin: auto;
-    width: 100%;
-    height: 65%;
-    font-size: 1rem;
-    font-style: oblique;
-    padding-left: 2%;
-    font-family: "BROTHER", sans-serif;
-    background-color: #eee;
-    border: none;
+.errores{
+    display: flex;
+    justify-content: center;
+}
+.peligro-error{
+    height: 25%;
+    color: red;
 }
 .registro{
     height: 25%;
