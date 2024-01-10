@@ -1,0 +1,25 @@
+<%- include("../partials/head1.ejs",{pageTitle: "Detalle de producto"})%>
+<link rel="stylesheet" href="/css/detalle.css">
+<%- include("../partials/head2.ejs") %>
+<body>
+    <header>
+        <%- include("../partials/barraNav.ejs") %>
+    </header>
+    <main>
+        <div class="caja-producto">
+            <div class="imagen-producto"><img src="/img/imgProducts/<%= miProducto.imagen %>" alt="imagen del producto"></div>
+            <div class="descripcion">
+                <h2><%= miProducto.nombre %></h2>
+                <br>
+                <p>INGREDIENTES: <%= miProducto.ingredientes %></p>
+                <br>
+                <p>PRECIO: $ <%= miProducto.precio %></p>
+            </div>
+        </div>
+        <div class="boton">
+            <a href="/listaProductos"><input type="button" value="Volver"></a>
+        </div>
+    </main>
+    <%- include("../partials/footer.ejs") %>
+</body>
+</html>
