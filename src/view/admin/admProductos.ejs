@@ -1,5 +1,5 @@
 <%- include("../partials/head1.ejs",{pageTitle: "Carrito de compras" })%>
-    <link rel="stylesheet" href="css/listaProductos.css">
+    <link rel="stylesheet" href="css/admProducts.css">
     <%- include("../partials/head2.ejs") %>
 
         <body>
@@ -8,6 +8,11 @@
             </header>
             <br>
             <main>
+                <div>
+                    <div class="new">
+                        <a href="/newProduct"><i class="fa-solid fa-circle-plus"></i> Agregar un producto</a>
+                    </div>
+                </div>
                 <% productos.forEach(producto=>{ %>
                     <div class="caja-producto">
                         <div class="imagen"><img src="img/imgProducts/<%= producto.imagen %>" alt="imagen producto">
@@ -17,13 +22,11 @@
                                 <%= producto.nombre %>
                             </h2>
                         </div>
-                        <form action="/carrito/<%= producto.id %>" method="POST">
                         <div class="botones-admin">
                             <a href="/detail/<%= producto.id %>"><input type="button" value="Ver"></a>
-                            <input class="cantidad" type="number" name="cantidad" value="1">
-                            <input class="comprar" type="submit" name="borrar" value="comprar">
+                            <a href="/editar/<%= producto.id %>"><input type="button" value="Editar"></a>
+                            <a href="/delete/<%= producto.id %>"><input type="button" value="Eliminar"></a>
                         </div>
-                        </form>
                     </div>
                     <% }) %>
             </main>

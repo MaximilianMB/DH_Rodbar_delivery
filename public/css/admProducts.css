@@ -6,7 +6,7 @@ main{
 }
 .caja-producto{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     color: white;
     border: solid 2px rgb(250, 173, 41);
@@ -18,10 +18,10 @@ main{
     font-size: 1.5rem;
 }
 .imagen{
-    width: 30%;
+    width: 10%;
 }
 img{
-    width: 30%;
+    width: 100%;
 }
 .box4{
     display: none;

@@ -30,5 +30,13 @@
     "contraseña": "$2a$10$8QhgoVae3xdMWes0fPNUtOb6LwJvTkVFU3Jx8nF2jtWdDhfL0fYR2",
     "imagen": "usuario-1704914477758.jpg",
     "rol": 2
+  },
+  {
+    "nombre": "maximiliano",
+    "usuario": "maximan1234",
+    "email": "maxi_1204@hotmail.com",
+    "contraseña": "$2a$10$yaNbqOZdLnH3MEor5p7AGuaj1959rKIDCYYHvImUv0rohOZh9wE6m",
+    "imagen": "usuario-1704926754253.jpg",
+    "rol": 2
   }
 ]

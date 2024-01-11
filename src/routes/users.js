@@ -28,9 +28,22 @@ const validacionRegistro = [
 
     check("email")
         .isEmail().withMessage("El campo debe ser un email válido"),
+    body('email').custom(function (value) {
+        let contador = 0;
+        for (let i = 0; i < users.length; i++) {
+            if (usuario[i].email == value) {
+                contador++;
+            }
+        }
+        if (contador > 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }).withMessage('Usuario ya se encuentra registrado'),
 
-        check("password")
-        .isLength({ min : 6})
+    check("password")
+        .isLength({ min: 6 })
         .withMessage("El campo contraseña debe tener al menos 8 caracteres"),
 
     body("repetir-password").custom((value, { req }) => {
@@ -66,3 +79,4 @@ router.get('/login', usersController.login);
 
 
 module.exports = router;
+

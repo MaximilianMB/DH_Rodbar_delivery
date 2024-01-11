@@ -28,9 +28,9 @@ const productsController = {
         fs.writeFileSync(path.join(__dirname, "../data/products.json"), nuevosProductos);
         res.redirect("/listaProductos")
     },
-    listado: (req,res)=>{
+    administrar: (req,res)=>{
         let productos = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/products.json")));
-        res.render(path.join(__dirname, "../view/products/listaProductos.ejs"), {productos})
+        res.render(path.join(__dirname, "../view/admin/admProductos.ejs"), {productos})
     },
     show: (req,res)=>{
         let productos = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/products.json")));
@@ -79,6 +79,29 @@ const productsController = {
             let productosGuardarFinales = JSON.stringify(productosFinales, null, 2)
         fs.writeFileSync(path.join(__dirname, "../data/products.json"),productosGuardarFinales);
         res.redirect("/listaProductos")
+    },
+    listado: (req,res)=>{
+        let productos = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/products.json")));
+        res.render(path.join(__dirname, "../view/products/listaProductos.ejs"), {productos})    
+    },
+    comprar: (req,res)=>{
+        let productos = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/products.json")));
+        let id = req.params.id;
+        let miProducto;
+        productos.forEach(producto => {
+            if(producto.id == id){
+                miProducto = {
+                    nombre: producto.nombre,
+                    imagen: producto.imagen,
+                    precio: producto.precio,
+                    cantidad: req.body.cantidad
+                }
+            }
+        });
+        res.render(path.join(__dirname, "../view/products/carrito.ejs"), {miProducto})
+    },
+    vacio: (req,res)=>{
+        res.render(path.join(__dirname, "../view/products/carritoVacio.ejs"))
     }
 }
 
