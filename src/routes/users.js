@@ -97,9 +97,7 @@ const validationLogin = [
         for(let i = 0; i < usuarios.length; i++) {
             if (usuarios[i].email == req.body.email) {
                 let usuario = usuarios[i];
-                console.log(usuario);
                 let samePassword = bcrypt.compareSync(value, usuario.password);
-                console.log(samePassword)
                 if(samePassword){
                     return true
                 }else{

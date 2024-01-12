@@ -1,0 +1,14 @@
+
+main{
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to bottom, #FAAD29, #3A0357);
+}
+
+img{
+    width: 60%;
+}
+
+.box4{
+    display: none;
+}

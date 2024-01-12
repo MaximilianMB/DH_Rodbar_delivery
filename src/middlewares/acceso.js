@@ -1,8 +1,8 @@
 const path = require("path");
 
 const middlewareAcceso = (req, res, next) =>{
-    if(req.body.role != 1){
-        res.send("../../public/img")
+    if(req.session.usuario.rol != 1){
+        res.render("../view/admin/accesoDenegado.ejs");
     }else{
         next()
     }

@@ -14,5 +14,13 @@
     "password": "$2a$10$ur5ChMFdYQ2bKJYGUUYdm.63Mr2KaJ6bOk1R0TTar6nL7NrBVAipe",
     "imagen": "usuario-1705055284856.jpg",
     "rol": 2
+  },
+  {
+    "nombre": "emir",
+    "usuario": "emir1234",
+    "email": "emir@gmail.com",
+    "password": "$2a$10$8VtCKBN2gq577HOz0fGoyOCHM03CZF.OKbBT9pzhSyQ5WQT./XUvO",
+    "imagen": "usuario-1705083735774.jpg",
+    "rol": 2
   }
 ]
