@@ -1,42 +1,18 @@
 [
   {
     "nombre": "Maximiliano",
-    "usuario": "maximiliano1204",
+    "usuario": "Maximiliano1234",
     "email": "maxi_1204@hotmail.com",
-    "password": "$2a$12$SCFrxQuAtLh668iBpN.1KOAXUP9mcFxKHMzGWqW8YXrcmP2aV8qJy",
-    "imagen": "",
-    "role": 1
+    "password": "$2a$10$0HIIzylIsgIeu8K2/t3yTOoAE30pJetfWUlHKUU1Z0WM54WJAS6ZS",
+    "imagen": "usuario-1705048915173.jpg",
+    "rol": 1
   },
   {
-    "nombre": "Maximiliano",
-    "usuario": "maximiliano21",
-    "email": "maxi_1204@hotmail.com",
-    "password": "$2a$10$qe0QRa7Ic0.gOFfCsNCJruRYtqDBCTVx8DX5oI57BAsGm5DuciRZe",
-    "imagen": "usuario-1704880883907.jpg",
-    "rol": 2
-  },
-  {
-    "nombre": "Maximiliano Barrientos",
-    "usuario": "maximan1204",
-    "email": "maxi_1204@hotmail.com",
-    "contraseña": "$2a$10$dT6COsTr0OABJmjXrTYCNeUZP7W6HktJc5Rcv/lBjRs92i90iUnI.",
-    "imagen": "usuario-1704881024806.jpg",
-    "rol": 2
-  },
-  {
-    "nombre": "jesus",
-    "usuario": "jesus1204",
-    "email": "maxi_1204@hotmail.com",
-    "contraseña": "$2a$10$8QhgoVae3xdMWes0fPNUtOb6LwJvTkVFU3Jx8nF2jtWdDhfL0fYR2",
-    "imagen": "usuario-1704914477758.jpg",
-    "rol": 2
-  },
-  {
-    "nombre": "maximiliano",
-    "usuario": "maximan1234",
-    "email": "maxi_1204@hotmail.com",
-    "contraseña": "$2a$10$yaNbqOZdLnH3MEor5p7AGuaj1959rKIDCYYHvImUv0rohOZh9wE6m",
-    "imagen": "usuario-1704926754253.jpg",
+    "nombre": "Julio",
+    "usuario": "julio1234",
+    "email": "julio@gmail.com",
+    "password": "$2a$10$ur5ChMFdYQ2bKJYGUUYdm.63Mr2KaJ6bOk1R0TTar6nL7NrBVAipe",
+    "imagen": "usuario-1705055284856.jpg",
     "rol": 2
   }
 ]

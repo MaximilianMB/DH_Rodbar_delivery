@@ -15,7 +15,7 @@ const usersController = {
                 nombre: req.body.nombre,
                 usuario: req.body.usuario,
                 email: req.body.email,
-                contraseña: bcrypt.hashSync(req.body.password, 10),
+                password: bcrypt.hashSync(req.body.password, 10),
                 imagen: req.file ? req.file.filename : '',
                 rol : 2
             };
@@ -29,6 +29,22 @@ const usersController = {
     },
     login:(req, res)=>{
         res.render(path.join(__dirname, "../view/users/login.ejs"))
+    },
+    logueado: (req,res)=>{
+        let usuarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/users.json")));
+        const errors = validationResult(req);
+        if(errors.isEmpty()){
+            let usuarioLogin = usuarios.find(usuario => usuario.email == req.body.email);
+            delete usuarioLogin.password;
+            req.session.usuario = usuarioLogin;
+
+            if(req.body.recordarme){
+                res.cookie("email", usuarioLogin.email, {maxAge: 1000*60*60})
+            }
+            return res.redirect("/")
+        }else{
+            res.render(path.join(__dirname, "../view/users/login.ejs"), {errors: errors.errors, old: req.body})
+        }
     }
     
 }

@@ -3,6 +3,7 @@ const usersController = require("../controllers/usersController")
 const router = express.Router();
 const multer = require("multer");
 const path = require("path");
+const fs  = require("fs");
 const { body, check } = require("express-validator");
 const bcrypt = require("bcryptjs");
 
@@ -29,22 +30,23 @@ const validacionRegistro = [
     check("email")
         .isEmail().withMessage("El campo debe ser un email válido"),
     body('email').custom(function (value) {
-        let contador = 0;
-        for (let i = 0; i < users.length; i++) {
-            if (usuario[i].email == value) {
-                contador++;
+        let emailRepetido = 0;
+        let usuarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/users.json")));
+        usuarios.forEach(function (user) {
+            if (user.email === value) {
+                emailRepetido++;
             }
+        });
+        if(emailRepetido > 0){
+            return false
+        }else{
+            return true
         }
-        if (contador > 0) {
-            return false;
-        } else {
-            return true;
-        }
-    }).withMessage('Usuario ya se encuentra registrado'),
+    }).withMessage("El email ya está registrado"),
 
-    check("password")
-        .isLength({ min: 6 })
-        .withMessage("El campo contraseña debe tener al menos 8 caracteres"),
+check("password")
+    .isLength({ min: 6 })
+    .withMessage("El campo contraseña debe tener al menos 8 caracteres"),
 
     body("repetir-password").custom((value, { req }) => {
         if (req.body.password == value) {
@@ -60,7 +62,6 @@ const validacionRegistro = [
         } else {
             ext = "" + path.extname(req.files.filename).toLowerCase();
         }
-        //console.log(ext);
         if (
             ext == ".jpg" ||
             ext == ".jpeg" ||
@@ -72,9 +73,47 @@ const validacionRegistro = [
     }).withMessage('Solo debe seleccionar archivos  con extensión JPG, JPEG, PNG o GIF')
 ]
 
+const validationLogin = [
+    check("email")
+        .isEmail().withMessage("El campo debe ser un email"),
+    body('email').custom(function (value) {
+        let emailRepetido = 0;
+        let usuarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/users.json")));
+        usuarios.forEach(function (user) {
+            if (user.email === value) {
+                emailRepetido++;
+            }
+        });
+        if(emailRepetido > 0){
+            return true
+        }else{
+            return false
+        }
+    }).withMessage("El email indicado no está registrado"),
+    check("password")
+    .isLength({min: 6}).withMessage("La contraseña debe tener al menos 6 caracteres"),
+    body("password").custom(function(value, {req}){
+        let usuarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/users.json")));
+        for(let i = 0; i < usuarios.length; i++) {
+            if (usuarios[i].email == req.body.email) {
+                let usuario = usuarios[i];
+                console.log(usuario);
+                let samePassword = bcrypt.compareSync(value, usuario.password);
+                console.log(samePassword)
+                if(samePassword){
+                    return true
+                }else{
+                    return false
+                }
+        }
+    }
+}).withMessage("El usuario o contraseña son incorrectos")
+]
+
 router.get('/register', usersController.register);
 router.post("/register", upload.single("imagen"), validacionRegistro, usersController.create)
 router.get('/login', usersController.login);
+router.post("/login",validationLogin, usersController.logueado)
 
 
 

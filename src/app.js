@@ -15,8 +15,8 @@ app.set("views", path.join(__dirname, "./view"));
 
 app.use(methodOverride("_method"));
 app.use(session({
-    secret: 'Secret',
-    resave: false,
+    secret: 'topSecret',
+    resave: true,
     saveUninitialized: false
 }));
 app.use(cookieParser());

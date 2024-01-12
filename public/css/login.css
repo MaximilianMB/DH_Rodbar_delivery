@@ -123,38 +123,6 @@ input.boton {
     color: white;
 }
 
-.botones {
-    display: flex;
-    justify-content: center;
-    height: 20%;
-    margin-top: 2%;
-}
-
-.boton-face {
-    width: 10%;
-    height: 70%;
-    margin-right: 5%;
-}
-
-.boton-google {
-    width: 10%;
-    height: 70%;
-    margin-left: 5%;
-}
-
-input.boton-gmail {
-    margin-left: 5%;
-    width: 10%;
-    height: 80%;
-    padding: 0;
-    border-radius: 50%;
-    font-size: 40px;
-    font-family: "BROTHER", sans-serif;
-    font-style: oblique;
-    text-align: center;
-    color: tomato;
-    border: none;
-}
 
 .texto {
     margin-bottom: 2%;
@@ -169,11 +137,11 @@ input.boton-gmail {
 }
 
 .formulario {
-    height: 55%;
+    height: 65%;
 }
 
 .barra {
-    height: 30%;
+    height: 15%;
     display: flex;
     margin: auto;
     width: 70%;
@@ -191,16 +159,18 @@ input.boton-gmail {
     font-family: "BROTHER", sans-serif;
 }
 
-.barra3 {
+.checkbox{
+    width: 70%;
     margin: auto;
-    width: 100%;
-    height: 65%;
-    font-size: 20px;
-    font-style: oblique;
-    padding-left: 2%;
-    background-color: #eee;
-    border: none;
-    font-family: "BROTHER", sans-serif;
+    margin-top: 2%;
+    display: flex;
+    justify-content: flex-start;
+}
+.boxx{
+    width: 10%
+}
+.recordarme{
+    color: white;
 }
 
 .registro {
@@ -236,6 +206,13 @@ input.boton-registro {
 .box4 {
     display: none;
 }
-
+.errores{
+    display: flex;
+    justify-content: center;
+}
+.peligro-error{
+    height: 25%;
+    color: red;
+}
 
 @media(max-width:1000px) {}
