@@ -5,7 +5,7 @@ const {validationResult} = require("express-validator")
 
 const usersController = {
     register:(req, res)=>{
-        res.render(path.join(__dirname, "../view/users/register.ejs"))
+        res.render(path.join(__dirname, "../view/users/register.ejs"),{req:req})
     },
     create: (req, res)=>{
         let usuarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/users.json")));
@@ -28,7 +28,7 @@ const usersController = {
         }
     },
     login:(req, res)=>{
-        res.render(path.join(__dirname, "../view/users/login.ejs"))
+        res.render(path.join(__dirname, "../view/users/login.ejs"),{req:req})
     },
     logueado: (req,res)=>{
         let usuarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/users.json")));
@@ -45,8 +45,12 @@ const usersController = {
         }else{
             res.render(path.join(__dirname, "../view/users/login.ejs"), {errors: errors.errors, old: req.body})
         }
+    },
+    logout: (req,res) =>{
+        req.session.destroy();
+        res.cookie('email',null,{maxAge: -1});
+        res.redirect('/')
     }
-    
 }
 
 module.exports = usersController;

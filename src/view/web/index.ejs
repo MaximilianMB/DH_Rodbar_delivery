@@ -3,7 +3,7 @@
 <%- include("../partials/head2.ejs") %>
   <body>
     <header>
-    <%- include("../partials/barraNav.ejs") %>
+      <%- include("../partials/barraNav.ejs", { req: locals.req }) %>
     <section class="carrusel">
       <img class="imagen1" src="/img/IMG_8454.jpg" alt="foto de lomito" />
       <img src="/img/IMG_8392.jpg" alt="foto de hamburguesa" />

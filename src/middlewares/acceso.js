@@ -1,11 +1,12 @@
 const path = require("path");
 
 const middlewareAcceso = (req, res, next) =>{
-    if(req.session.usuario.rol != 1){
-        res.render("../view/admin/accesoDenegado.ejs");
+    if (req.session.usuario && req.session.usuario.rol === 1){
+        next();
     }else{
-        next()
+        res.render(path.join(__dirname, "../view/admin/accesoDenegado.ejs"), {req: req});
     }
 };
 
 module.exports = middlewareAcceso;
+

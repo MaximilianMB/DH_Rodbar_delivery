@@ -2,13 +2,13 @@ const path = require('path');
 const fs = require("fs")
 const productsController = {
     detalleProducto:  (req, res) => {
-        res.render(path.join(__dirname, "../view/products/detallProduc.ejs"));
+        res.render(path.join(__dirname, "../view/products/detallProduc.ejs"),{req:req});
     },
     carrito:(req, res)=>{
-        res.render(path.join(__dirname, "../view/products/carrito.ejs"))
+        res.render(path.join(__dirname, "../view/products/carrito.ejs"),{req:req})
     },
     nuevo: (req, res)=>{
-        res.render(path.join(__dirname, "../view/products/newProduct.ejs"))
+        res.render(path.join(__dirname, "../view/products/newProduct.ejs"),{req:req})
     },
     nuevoProducto: (req, res)=>{
         let productos = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/products.json")));
@@ -30,7 +30,7 @@ const productsController = {
     },
     administrar: (req,res)=>{
         let productos = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/products.json")));
-        res.render(path.join(__dirname, "../view/admin/admProductos.ejs"), {productos})
+        res.render(path.join(__dirname, "../view/admin/admProductos.ejs"), {productos, req:req})
     },
     show: (req,res)=>{
         let productos = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/products.json")));
@@ -41,7 +41,7 @@ const productsController = {
                 miProducto = producto
             }
         });
-        res.render(path.join(__dirname, "../view/products/detallProduc.ejs"), {miProducto})
+        res.render(path.join(__dirname, "../view/products/detallProduc.ejs"), {miProducto, req:req})
     },
     editar: (req, res)=>{
         let productos = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/products.json")));
@@ -52,7 +52,7 @@ const productsController = {
                 miProducto = producto
             }
         });
-        res.render(path.join(__dirname, "../view/products/editarProducto.ejs"), {miProducto})
+        res.render(path.join(__dirname, "../view/products/editarProducto.ejs"), {miProducto, req:req})
     },
     update: (req,res)=>{
         let productos = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/products.json")));
@@ -82,7 +82,7 @@ const productsController = {
     },
     listado: (req,res)=>{
         let productos = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/products.json")));
-        res.render(path.join(__dirname, "../view/products/listaProductos.ejs"), {productos})    
+        res.render(path.join(__dirname, "../view/products/listaProductos.ejs"), {productos,req:req})    
     },
     comprar: (req,res)=>{
         let productos = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/products.json")));
@@ -98,10 +98,10 @@ const productsController = {
                 }
             }
         });
-        res.render(path.join(__dirname, "../view/products/carrito.ejs"), {miProducto})
+        res.render(path.join(__dirname, "../view/products/carrito.ejs"), {miProducto, req:req})
     },
     vacio: (req,res)=>{
-        res.render(path.join(__dirname, "../view/products/carritoVacio.ejs"))
+        res.render(path.join(__dirname, "../view/products/carritoVacio.ejs"),{req:req})
     }
 }
 

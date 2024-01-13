@@ -99,6 +99,23 @@ footer div a {
   display: flex;
   justify-content:center;
 }
+.datosPerfil{
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  align-items: center;
+}
+
+.navbar .datosPerfil img{
+  width: 20%;
+  border-radius: 50%;
+}
+.cerrar{
+  border: none;
+  background-color: white;
+  font-family: "BROTHER", sans-serif;
+  font-size: 1rem;
+}
 
 @media (max-width: 480px) {
   .box1 {

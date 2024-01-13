@@ -111,7 +111,8 @@ const validationLogin = [
 router.get('/register', usersController.register);
 router.post("/register", upload.single("imagen"), validacionRegistro, usersController.create)
 router.get('/login', usersController.login);
-router.post("/login",validationLogin, usersController.logueado)
+router.post("/login",validationLogin, usersController.logueado);
+router.post("/", usersController.logout)
 
 
 
