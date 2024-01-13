@@ -47,3 +47,15 @@
 * Ser dependiente del compañero para avanzar y finalizar una tarea de dicho trabajo.
 ## Dejar de hacer:
 * Esperar hasta ultimo momento para juntarnos y realizar el Sprint.
+# Sprint 5
+## Comenzar a hacer:
+* Dejar atras compañeros que no aportaron casi nada al proyecto
+## Hacer mas:
+* Reuniones con mayor frecuencia.
+* Compromiso de los integrantes del grupo.
+## Continuar haciendo:
+* Realizar pair programming con mas frecuencia.
+## Hacer menos:
+* Ser dependiente del compañero para avanzar y finalizar una tarea de dicho trabajo.
+## Dejar de hacer:
+* Esperar hasta ultimo momento para juntarnos y realizar el Sprint.

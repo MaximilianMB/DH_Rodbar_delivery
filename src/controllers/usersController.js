@@ -24,7 +24,7 @@ const usersController = {
             fs.writeFileSync(path.join(__dirname, "../data/users.json"), nuevoUsuarioGuardar);
             res.redirect("/login");
         }else{
-            res.render(path.join(__dirname, "../view/users/register.ejs"), {errors: errors.errors, old: req.body})
+            res.render(path.join(__dirname, "../view/users/register.ejs"), {errors: errors.errors, old: req.body, req:req})
         }
     },
     login:(req, res)=>{

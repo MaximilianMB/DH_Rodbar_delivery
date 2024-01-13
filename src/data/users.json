@@ -6,5 +6,13 @@
     "password": "$2a$10$oIQo6DWZqjfmcAZyhooldeTq1uVGxlFN6wcO4ndRSDt27/ZzDZ8cO",
     "imagen": "usuario-1705135854436.jpeg",
     "rol": 1
+  },
+  {
+    "nombre": "pingolio",
+    "usuario": "emir1234",
+    "email": "emir@gmail.com",
+    "password": "$2a$10$fwceeVouW8BjqNPw1Vl9PevYb8L6Wxkw2SfmLTQKXMJ1CxpNNA69i",
+    "imagen": "usuario-1705173056223.jfif",
+    "rol": 2
   }
 ]
