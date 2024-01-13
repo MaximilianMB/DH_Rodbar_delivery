@@ -43,7 +43,7 @@ const usersController = {
             }
             return res.redirect("/")
         }else{
-            res.render(path.join(__dirname, "../view/users/login.ejs"), {errors: errors.errors, old: req.body})
+            res.render(path.join(__dirname, "../view/users/login.ejs"), {errors: errors.errors, old: req.body, req: req})
         }
     },
     logout: (req,res) =>{

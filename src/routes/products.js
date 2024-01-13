@@ -3,7 +3,7 @@ const productController = require ('../controllers/productsController');
 const router = express.Router();
 const multer = require("multer");
 const path = require("path");
-const middlewareAcceso = require("../middlewares/acceso")
+const middlewareAcceso = require("../middlewares/middelwareAcceso")
 
 const storage = multer.diskStorage({
     destination: (req, file, cb)=>{

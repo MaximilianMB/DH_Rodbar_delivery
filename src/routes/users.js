@@ -18,6 +18,7 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({ storage });
+
 const validacionRegistro = [
     check("nombre")
         .isLength({ min: 4 })
@@ -44,9 +45,9 @@ const validacionRegistro = [
         }
     }).withMessage("El email ya está registrado"),
 
-check("password")
-    .isLength({ min: 6 })
-    .withMessage("El campo contraseña debe tener al menos 8 caracteres"),
+    check("password")
+        .isLength({ min: 6 })
+        .withMessage("El campo contraseña debe tener al menos 8 caracteres"),
 
     body("repetir-password").custom((value, { req }) => {
         if (req.body.password == value) {
