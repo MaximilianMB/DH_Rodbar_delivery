@@ -47,7 +47,7 @@ const validacionRegistro = [
 
     check("password")
         .isLength({ min: 6 })
-        .withMessage("El campo contraseña debe tener al menos 8 caracteres"),
+        .withMessage("El campo contraseña debe tener al menos 6 caracteres"),
 
     body("repetir-password").custom((value, { req }) => {
         if (req.body.password == value) {

@@ -101,7 +101,7 @@ const productsController = {
         res.render(path.join(__dirname, "../view/products/carrito.ejs"), {miProducto, req:req})
     },
     vacio: (req,res)=>{
-        res.render(path.join(__dirname, "../view/products/carritoVacio.ejs"),{req:req})
+        res.render(path.join(__dirname, "../view/products/carritoVacio.ejs"), {req:req})
     }
 }
 
