@@ -50,6 +50,13 @@ const usersController = {
         req.session.destroy();
         res.cookie('email',null,{maxAge: -1});
         res.redirect('/')
+    },
+    profile: (req,res) => {
+        //El usuario no debe poder entrar a su perfil si no tiene la sesion iniciada
+        if(!req.session.usuario){
+            res.redirect('/')
+        }
+        res.render('./users/profile',{req : req})
     }
 }
 
