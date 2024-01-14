@@ -5,9 +5,9 @@
     <div class="box box2">
         <ul class="menu">
             <li><a href="/">Inicio</a></li>
-            <li><a href="">Quienes Somos</a></li>
+            <li><a href="#contenedor2">Quienes Somos</a></li>
             <li><a href="/listaProductos">Productos</a></li>
-            <li><a href="">Contacto</a></li>
+            <li><a href="#contenedor3">Contacto</a></li>
             <li><a href="/admProductos">Administrar</a></li>
         </ul>
     </div>
@@ -18,11 +18,13 @@
     </div>
     <% if(locals.req.session.usuario){ %>
         </div>
-        <div class="datosPerfil">
-            <img src="img/imgUsers/<%= locals.req.session.usuario.imagen %>" alt="imagen del usuario">
-            <p>
-                <%= locals.req.session.usuario.nombre %>
-            </p>
+        <div class="navSesion">
+            <a href="/profile" class="datosPerfil">
+                <img src="img/imgUsers/<%= locals.req.session.usuario.imagen %>" alt="imagen del usuario">
+                <p>
+                    <%= locals.req.session.usuario.nombre %>
+                </p>
+            </a>
             <form action="/" method="POST">
                 <input class="cerrar" type="submit" name="cerraSesion" value="Cerrar Sesion">
             </form>

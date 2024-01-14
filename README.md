@@ -24,10 +24,6 @@ Pero sobre todo a los amantes del buen sabor que quieren disfrutar del toque tra
 
   Tiene 21 años, vive en Sgo del Estero. Estudiante de la carrera Lic. en Sistemas de información, poca experiencia en programación, sin embargo cada vez le gusta más este mundo y esta predispuesto a aprender.
 
-- ### Cristian Gabriel Cacciolatti:
-
-  Tiene 31 años, es Desarrollador Web Full Stack, recibido de la academia Henry. Actualmente Tutor y Tutor corrector de la carrera Full Stack con JavaScript en la academia Desafío Latam de Chile. Además de la programación mis intereses están relacionados a la música, soy integrante del Coro Estable de la Provincia de Santiago del Estero. También me gusta hacer ejercicio y pasar tiempo con amigos.
-
 ## Sitios de referencia 🌐:
 
 1. [Betos](https://betos.com.ar)

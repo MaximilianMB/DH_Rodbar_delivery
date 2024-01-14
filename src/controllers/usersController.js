@@ -24,7 +24,7 @@ const usersController = {
             fs.writeFileSync(path.join(__dirname, "../data/users.json"), nuevoUsuarioGuardar);
             res.redirect("/login");
         }else{
-            res.render(path.join(__dirname, "../view/users/register.ejs"), {errors: errors.errors, old: req.body, req: req})
+            res.render(path.join(__dirname, "../view/users/register.ejs"), {errors: errors.errors, old: req.body})
         }
     },
     login:(req, res)=>{
@@ -50,6 +50,13 @@ const usersController = {
         req.session.destroy();
         res.cookie('email',null,{maxAge: -1});
         res.redirect('/')
+    },
+    profile: (req,res) => {
+        //El usuario no debe poder entrar a su perfil si no tiene la sesion iniciada
+        if(!req.session.usuario){
+            res.redirect('/')
+        }
+        res.render('./users/profile',{req : req})
     }
 }
 
