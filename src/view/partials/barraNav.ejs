@@ -12,8 +12,10 @@
         </ul>
     </div>
     <div class="box box3">
-        <input type="search" placeholder="Buscar..." />
-        <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+        <form action="/buscarProductos" method="GET" class="busqueda">
+            <input type="search" name="search" placeholder="Buscar..." class="busqueda-input"/>
+            <button type="submit" class="busqueda-button"></button>
+        </form>
         <a href="/carritoVacio"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>
     <% if(locals.req.session.usuario){ %>
