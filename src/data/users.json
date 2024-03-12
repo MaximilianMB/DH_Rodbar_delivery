@@ -8,11 +8,43 @@
     "rol": 1
   },
   {
-    "nombre": "pitudo",
+    "nombre": "Emir Basil",
     "usuario": "emir1234",
     "email": "emir@gmail.com",
-    "password": "$2a$10$fwceeVouW8BjqNPw1Vl9PevYb8L6Wxkw2SfmLTQKXMJ1CxpNNA69i",
-    "imagen": "usuario-1705173056223.jfif",
+    "password": "$2a$10$0dUS7TclJmMNsuUBAdSZ7O6ULK1w.Wi.4H0owb28QZYU8J.XlbneC",
+    "imagen": "usuario-1705815697161.jpeg",
     "rol": 2
+  },
+  {
+    "nombre": "Cristian Falcon",
+    "usuario": "Cristian1234",
+    "email": "cristian@gmail.com",
+    "password": "$2a$10$0CrS/5Bet/4VT31iD.W/feWSEg4uMGbptQnkAb5MJ7MDVbwdhwdSa",
+    "imagen": "usuario-1705816017173.jpeg",
+    "rol": 2
+  },
+  {
+    "nombre": "Cristian Cacciolatti",
+    "usuario": "Caccito1234",
+    "email": "caccito@gmail.com",
+    "password": "$2a$10$p0.ezXzioe5vh8vtt2HdhuBSP30lmWYsQqv9v0vmmP10IE1Z6plSW",
+    "imagen": "usuario-1705816346839.jpeg",
+    "rol": 3
+  },
+  {
+    "nombre": "Daniel Fuentes",
+    "usuario": "Daniel1234",
+    "email": "daniel@gmail.com",
+    "password": "$2a$10$QmlShZmaJ4C3oXEfUGFR9ujwOHfvTh3f7i2A45g4R2ihRVCJ4IJTe",
+    "imagen": "usuario-1705816619033.jpeg",
+    "rol": 3
+  },
+  {
+    "nombre": "Rocio Carle",
+    "usuario": "Rocio1234",
+    "email": "rocio@gmail.com",
+    "password": "$2a$10$pngsIQZrVbusdQF2kSzHIugcHNbJJkFsCq.nVOjI8sWN5.lrBRTCa",
+    "imagen": "usuario-1705816806516.jpeg",
+    "rol": 3
   }
 ]

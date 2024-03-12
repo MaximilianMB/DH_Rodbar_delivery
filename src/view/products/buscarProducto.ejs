@@ -1,0 +1,33 @@
+<%- include("../partials/head1.ejs",{pageTitle: "Carrito de compras" })%>
+    <link rel="stylesheet" href="css/listaProductos.css">
+    <%- include("../partials/head2.ejs") %>
+
+        <body>
+            <header>
+                <%- include("../partials/barraNav.ejs", { req: locals.req }) %>
+            </header>
+            <br>
+            <main>
+                <% productos.forEach(producto=>{ %>
+                    <div class="caja-producto">
+                        <div class="imagen"><img src="img/imgProducts/<%= producto.imagen %>" alt="imagen producto">
+                        </div>
+                        <div class="descripcion">
+                            <h2>
+                                <%= producto.nombre %>
+                            </h2>
+                        </div>
+                        <form action="/carrito/<%= producto.id %>" method="POST">
+                        <div class="botones-admin">
+                            <a href="/detail/<%= producto.id %>"><input type="button" value="Ver"></a>
+                            <input class="cantidad" type="number" name="cantidad" value="0">
+                            <input class="comprar" type="submit" name="borrar" value="comprar">
+                        </div>
+                        </form>
+                    </div>
+                    <% }) %>
+            </main>
+            <%- include("../partials/footer.ejs") %>
+        </body>
+
+        </html>

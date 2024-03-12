@@ -115,6 +115,7 @@ router.get('/login', usersController.login);
 router.post("/login",validationLogin, usersController.logueado);
 router.post("/", usersController.logout)
 router.get('/profile',usersController.profile)
+router.get("/editar", usersController.editar)
 
 
 

@@ -6,5 +6,6 @@ const router = express.Router();
 
 
 router.get("/", indexController.home);
+router.get("/buscarProductos", indexController.search)
 
 module.exports = router;

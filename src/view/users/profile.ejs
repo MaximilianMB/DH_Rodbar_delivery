@@ -14,9 +14,10 @@
                 <p class="textoSecundario">@<%= req.session.usuario.usuario %></p>
             </div>
         </section>
-        <section class="tarjeta tarjetaUsuario">
+        <section class="tarjeta tarjetaUsuario correo">
             <h3 class="textoPrincipal">Correo</h3>
             <p class="textoSecundario"><%= req.session.usuario.email %></p>
+            <a href="/editar"><input class="editarBoton" type="button" value="Editar"></a>
         </section>
     </main>
     <%- include("../partials/footer.ejs") %>
