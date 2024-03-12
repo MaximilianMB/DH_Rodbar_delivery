@@ -1,5 +1,5 @@
 <%- include("../partials/head1.ejs",{pageTitle: "Perfil-RodBar Delivery"})%>
-<link rel="stylesheet" href="css/profile.css">
+<link rel="stylesheet" href="/css/profile.css">
 <%- include("../partials/head2.ejs") %>
 
 <header>
@@ -8,7 +8,7 @@
 <body class="contenedorPrincipal">
     <main class="contenedorSecundario">
         <section class="tarjeta tarjetaUsuario">
-            <img src="img/imgUsers/<%=req.session.usuario.imagen %>" alt="imagen del usuario" class="imgPerfil">
+            <img src="/img/imgUsers/<%=req.session.usuario.imagen %>" alt="imagen del usuario" class="imgPerfil">
             <div class="datos">
                 <h2 class="textoPrincipal"><%= req.session.usuario.nombre %></h2>
                 <p class="textoSecundario">@<%= req.session.usuario.usuario %></p>
@@ -17,7 +17,7 @@
         <section class="tarjeta tarjetaUsuario correo">
             <h3 class="textoPrincipal">Correo</h3>
             <p class="textoSecundario"><%= req.session.usuario.email %></p>
-            <a href="/editar"><input class="editarBoton" type="button" value="Editar"></a>
+            <a href="/editarUser/<%= req.session.usuario.id %>"><input class="editarBoton" type="button" value="Editar"></a>
         </section>
     </main>
     <%- include("../partials/footer.ejs") %>

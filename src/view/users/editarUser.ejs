@@ -1,22 +1,31 @@
 <%- include("../partials/head1.ejs",{pageTitle: "Perfil-RodBar Delivery"})%>
-<link rel="stylesheet" href="css/editProfile.css">
+<link rel="stylesheet" href="/css/editProfile.css">
 <%- include("../partials/head2.ejs") %>
 
 <header>
     <%- include("../partials/barraNav.ejs", { req: locals.req }) %>
 </header>
 <body class="contenedorPrincipal">
-    <form action="/editar/<%= req.session.usuario.id %>" method="POST">
+    <form action="/profile/<%= req.session.usuario.id %>" method="POST">
     <main class="contenedorSecundario">
         <section class="tarjeta tarjetaUsuario">
+            <div class="errores">
+                <% if(typeof(errors) != "undefined"){ %>
+                    <ul class="peligro-error">
+                        <% errors.forEach(error => { %>
+                            <li><%= error.msg %></li>
+                            <% }); %> 
+                    </ul>
+                <% }; %> 
+            </div>
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" id="nombre"value="<%= req.session.usuario.nombre %>">
             <label for="contraseña">Contraseña actual</label>
-            <input type="password" id="contraseña" name="password" >
+            <input type="password" id="contraseña" name="oldPassword" >
             <label for="contraseña1">Nueva contraseña</label>
-            <input type="password" id="contraseña1" name="password">
+            <input type="password" id="contraseña1" name="password1">
             <label for="contraseña2">Repita nueva contraseña</label>
-            <input type="password" id="contraseña2" name="password">
+            <input type="password" id="contraseña2" name="password2">
             <label for="imagen">Imagen de perfil</label>
             <input type="file" name="imagen" id="imagen" value="<%= req.session.usuario.imagen %>">
             <input class="editarBoton" type="submit" value="Aceptar">

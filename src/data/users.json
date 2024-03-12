@@ -1,13 +1,5 @@
 [
   {
-    "nombre": "Maximiliano Barrientos",
-    "usuario": "maximiliano1234",
-    "email": "maxi_1204@hotmail.com",
-    "password": "$2a$10$oIQo6DWZqjfmcAZyhooldeTq1uVGxlFN6wcO4ndRSDt27/ZzDZ8cO",
-    "imagen": "usuario-1705135854436.jpeg",
-    "rol": 1
-  },
-  {
     "nombre": "Emir Basil",
     "usuario": "emir1234",
     "email": "emir@gmail.com",

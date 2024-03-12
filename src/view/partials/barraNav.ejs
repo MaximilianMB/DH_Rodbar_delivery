@@ -21,8 +21,8 @@
     <% if(locals.req.session.usuario){ %>
         </div>
         <div class="navSesion">
-            <a href="/profile" class="datosPerfil">
-                <img src="img/imgUsers/<%= locals.req.session.usuario.imagen %>" alt="imagen del usuario">
+            <a href="/profile/<%= locals.req.session.usuario.id %>" class="datosPerfil">
+                <img src="/img/imgUsers/<%= locals.req.session.usuario.imagen %>" alt="imagen del usuario">
                 <p>
                     <%= locals.req.session.usuario.nombre %>
                 </p>

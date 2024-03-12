@@ -3,9 +3,12 @@ const usersController = require("../controllers/usersController")
 const router = express.Router();
 const multer = require("multer");
 const path = require("path");
-const fs  = require("fs");
+const fs = require("fs");
 const { body, check } = require("express-validator");
 const bcrypt = require("bcryptjs");
+const db = require("../database/models");
+const sequelize = db.Sequelize;
+
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -31,19 +34,14 @@ const validacionRegistro = [
     check("email")
         .isEmail().withMessage("El campo debe ser un email válido"),
     body('email').custom(function (value) {
-        let emailRepetido = 0;
-        let usuarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/users.json")));
-        usuarios.forEach(function (user) {
-            if (user.email === value) {
-                emailRepetido++;
-            }
-        });
-        if(emailRepetido > 0){
-            return false
-        }else{
-            return true
-        }
-    }).withMessage("El email ya está registrado"),
+        return db.User.findOne({ where: { email: value } })
+            .then(user => {
+                if (user) {
+                    return Promise.reject(); // Lanzar un error para indicar validación fallida
+                }
+                return true; // Indicar que la validación ha pasado con éxito
+            });
+    }).withMessage("El email ya está registrado en la base de datos"),
 
     check("password")
         .isLength({ min: 6 })
@@ -78,44 +76,52 @@ const validationLogin = [
     check("email")
         .isEmail().withMessage("El campo debe ser un email"),
     body('email').custom(function (value) {
-        let emailRepetido = 0;
-        let usuarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/users.json")));
-        usuarios.forEach(function (user) {
-            if (user.email === value) {
-                emailRepetido++;
-            }
-        });
-        if(emailRepetido > 0){
-            return true
-        }else{
-            return false
-        }
-    }).withMessage("El email indicado no está registrado"),
-    check("password")
-    .isLength({min: 6}).withMessage("La contraseña debe tener al menos 6 caracteres"),
-    body("password").custom(function(value, {req}){
-        let usuarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/users.json")));
-        for(let i = 0; i < usuarios.length; i++) {
-            if (usuarios[i].email == req.body.email) {
-                let usuario = usuarios[i];
-                let samePassword = bcrypt.compareSync(value, usuario.password);
-                if(samePassword){
-                    return true
-                }else{
-                    return false
+        return db.User.findOne({ where: { email: value } })
+            .then(user => {
+                if (user) {
+                    return true; // Lanzar un error para indicar validación fallida
                 }
-        }
-    }
-}).withMessage("El usuario o contraseña son incorrectos")
+                return Promise.reject(); // Indicar que la validación ha pasado con éxito
+            });
+    }).withMessage("El email no está registrado en la base de datos"),
+    check("password")
+        .isLength({ min: 6 }).withMessage("La contraseña debe tener al menos 6 caracteres"),
+    // body("password").custom(function (value, { req }) {
+    //     db.User.findOne({
+    //         where: {
+    //             email: req.body.email
+    //         }
+    //     })
+    //         .then(usuario =>{
+    //             console.log(usuario.password)
+    //             console.log(value);
+    //             if(!usuario){
+    //                 return Promise.reject()
+    //             }
+    //             let samePassword = bcrypt.compareSync(value, usuario.password);
+    //             if(samePassword){
+    //                 return true
+    //             }
+    //             return Promise.reject()
+    //         })
+    //         }
+        
+    // ).withMessage("La contraseña es incorrecta")
+]
+
+const validationProfile = [
+    check("oldPassword")
+
 ]
 
 router.get('/register', usersController.register);
 router.post("/register", upload.single("imagen"), validacionRegistro, usersController.create)
 router.get('/login', usersController.login);
-router.post("/login",validationLogin, usersController.logueado);
+router.post("/login", validationLogin, usersController.logueado);
 router.post("/", usersController.logout)
-router.get('/profile',usersController.profile)
-router.get("/editar", usersController.editar)
+router.get('/profile/:id', usersController.profile)
+router.post('/profile/:id', usersController.update)
+router.get("/editarUser/:id", usersController.editar)
 
 
 

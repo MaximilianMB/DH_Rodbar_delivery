@@ -31,20 +31,42 @@ const usersController = {
         res.render(path.join(__dirname, "../view/users/login.ejs"), { req: req })
     },
     logueado: (req, res) => {
-        let usuarios = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/users.json")));
         const errors = validationResult(req);
-        if (errors.isEmpty()) {
-            let usuarioLogin = usuarios.find(usuario => usuario.email == req.body.email);
-            delete usuarioLogin.password;
-            req.session.usuario = usuarioLogin;
-
-            if (req.body.recordarme) {
-                res.cookie("email", usuarioLogin.email, { maxAge: 1000 * 60 * 60 })
-            }
-            return res.redirect("/")
-        } else {
-            res.render(path.join(__dirname, "../view/users/login.ejs"), { errors: errors.errors, old: req.body, req: req })
+        if (!errors.isEmpty()) {
+            return res.render(path.join(__dirname, "../view/users/login.ejs"), { errors: errors.errors, old: req.body, req: req });
         }
+
+        db.User.findOne({ where: { email: req.body.email } })
+            .then(user => {
+                if (!user) {
+                    return res.render(path.join(__dirname, "../view/users/login.ejs"), { errors: errors, old: req.body, req: req });
+                }
+
+                bcrypt.compare(req.body.password, user.password)
+                    .then(passwordMatch => {
+                        if (!passwordMatch) {
+                            return res.render(path.join(__dirname, "../view/users/login.ejs"), { errors: [{ msg: 'Contraseña incorrecta' }], old: req.body, req: req });
+                        }
+
+                        // Eliminar la contraseña del objeto usuario antes de almacenarlo en la sesión
+                        delete user.password;
+                        req.session.usuario = user;
+
+                        if (req.body.recordarme) {
+                            res.cookie("email", user.email, { maxAge: 1000 * 60 * 60 });
+                        }
+
+                        return res.redirect("/");
+                    })
+                    .catch(error => {
+                        console.error("Error al comparar contraseñas:", error);
+                        return res.status(500).send("Error interno del servidor");
+                    });
+            })
+            .catch(error => {
+                console.error("Error al buscar usuario en la base de datos:", error);
+                return res.status(500).send("Error interno del servidor");
+            });
     },
     logout: (req, res) => {
         req.session.destroy();
@@ -67,23 +89,38 @@ const usersController = {
         db.User.findAll({
             include: ["rol", "products"]
         })
-            .then((user)=>{
-                res.render(path.join(__dirname, "../view/users/editarUser.ejs"), {user: user, req: req})
+            .then((user) => {
+                res.render(path.join(__dirname, "../view/users/editarUser.ejs"), { user: user, req: req })
             })
     },
     update: (req, res) => {
-        db.User.update({
-            nombre: req.body.nombre,
-            password: bcrypt.hashSync(req.body.password, 10),
-            imagen: req.file.filename,
-        },
-            {
-                where: {
-                    id: req.params.id
+        db.User.findByPk(req.params.id)
+            .then(user => {
+                let errors = []
+                // Verificar si la contraseña actual es correcta
+                if (!bcrypt.compareSync(req.body.oldPassword, user.password)) {
+                    errors.push("La contraseña es incorrecta")
+                    res.render(path.join(__dirname, "../view/users/editarUser.ejs"), { old: req.body, req: req, user: user })
+                    if (!req.body.password1 === req.body.password2) {
+                        return res.render(path.join(__dirname, "../view/users/editarUser.ejs"), {old: req.body, req: req })
+                    }
                 }
-            })
-            .then(() => {
-                res.redirect("/profile")
+
+                // Si la contraseña actual es correcta, actualizar la contraseña
+                db.User.update({
+                    nombre: req.body.nombre,
+                    password: bcrypt.hashSync(req.body.newPassword, 10), // Nueva contraseña hasheada
+                    imagen: req.file.filename,
+                },
+                    {
+                        where: {
+                            id: req.params.id
+                        }
+                    })
+                    .then(() => {
+                        res.redirect("/login")
+                    })
+                    .catch(error => res.send(error))
             })
             .catch(error => res.send(error))
     }

@@ -49,6 +49,7 @@ const productsController = {
         })
             .then(productos =>
                 res.render(path.join(__dirname, "../view/admin/admProductos.ejs"), {productos, req:req}));
+                console.log(req.session.usuario)
     },
     editar: (req, res)=>{
         db.Product.findByPk(req.params.id)
