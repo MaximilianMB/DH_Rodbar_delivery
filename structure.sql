@@ -51,9 +51,9 @@ CREATE TABLE `roles` (
 );
 
 
-ALTER TABLE `usuarios` ADD CONSTRAINT `FK_5e1bebd0-386b-4db7-beef-5d4d5ba39de0` FOREIGN KEY (`rol`) REFERENCES `roles`(`id`)  ;
+ALTER TABLE `usuarios` ADD CONSTRAINT `FK_5e1bebd0-386b-4db7-beef-5d4d5ba39de0` FOREIGN KEY (`rolId`) REFERENCES `roles`(`id`)  ;
 
-ALTER TABLE `productos` ADD CONSTRAINT `FK_3152142b-82a4-4696-ac96-6f1f4d005817` FOREIGN KEY (`categoria`) REFERENCES `categorias`(`id`)  ;
+ALTER TABLE `productos` ADD CONSTRAINT `FK_3152142b-82a4-4696-ac96-6f1f4d005817` FOREIGN KEY (`categoriaId`) REFERENCES `categorias`(`id`)  ;
 
 ALTER TABLE `UsuariosProductos` ADD CONSTRAINT `FK_79a7c54a-8758-4e2d-9117-1fae98f4451d` FOREIGN KEY (`usuarioId`) REFERENCES `usuarios`(`id`)  ;
 

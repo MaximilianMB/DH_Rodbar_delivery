@@ -86,44 +86,57 @@ const usersController = {
             })
     },
     editar: (req, res) => {
+        let error = null
         db.User.findAll({
             include: ["rol", "products"]
         })
             .then((user) => {
-                res.render(path.join(__dirname, "../view/users/editarUser.ejs"), { user: user, req: req })
+                res.render(path.join(__dirname, "../view/users/editarUser.ejs"), { error: error, user: user, req: req })
             })
     },
     update: (req, res) => {
+        let error = [];
+    
+        if (req.body.password1 !== req.body.password2) {
+            error.push("Las contraseñas no coinciden");
+        }
+    
         db.User.findByPk(req.params.id)
             .then(user => {
-                let errors = []
-                // Verificar si la contraseña actual es correcta
                 if (!bcrypt.compareSync(req.body.oldPassword, user.password)) {
-                    errors.push("La contraseña es incorrecta")
-                    res.render(path.join(__dirname, "../view/users/editarUser.ejs"), { old: req.body, req: req, user: user })
-                    if (!req.body.password1 === req.body.password2) {
-                        return res.render(path.join(__dirname, "../view/users/editarUser.ejs"), {old: req.body, req: req })
-                    }
+                    error.push("La contraseña actual es incorrecta");
                 }
-
-                // Si la contraseña actual es correcta, actualizar la contraseña
-                db.User.update({
-                    nombre: req.body.nombre,
-                    password: bcrypt.hashSync(req.body.newPassword, 10), // Nueva contraseña hasheada
-                    imagen: req.file.filename,
-                },
-                    {
-                        where: {
-                            id: req.params.id
-                        }
+    
+                if (error.length === 0) {
+                    let updateFields = {
+                        nombre: req.body.nombre,
+                        // imagen: req.file.filename
+                    };
+    
+                    if (req.body.password1 && req.body.password2) {
+                        updateFields.password = bcrypt.hashSync(req.body.password1, 10);
+                    }
+    
+                    db.User.update(updateFields, {
+                        where: { id: req.params.id }
                     })
-                    .then(() => {
-                        res.redirect("/login")
-                    })
-                    .catch(error => res.send(error))
+                        .then(() => {
+                            req.session.destroy(); // Destruye la sesión para forzar al usuario a iniciar sesión nuevamente
+                            return res.redirect("/login");
+                        })
+                        .catch(err => {
+                            console.error("Error al actualizar usuario:", err);
+                            return res.status(500).send("Error interno del servidor");
+                        });
+                } else {
+                    res.render(path.join(__dirname, "../view/users/editarUser.ejs"), { error: error, old: req.body, req: req });
+                }
             })
-            .catch(error => res.send(error))
-    }
+            .catch(err => {
+                console.error("Error al encontrar usuario:", err);
+                return res.status(500).send("Error interno del servidor");
+            });
+    }    
 }
 
 module.exports = usersController;

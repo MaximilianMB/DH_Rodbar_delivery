@@ -11,7 +11,11 @@
     gap: 1rem;
 
 }
-
+form{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 .tarjeta{
     background: white;
     padding: 3rem;
@@ -69,7 +73,6 @@ body section a{
     font-size: 1.5rem;
     font-weight: 600;
     opacity: 0.8;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .box4{
     display: none;
@@ -82,4 +85,9 @@ main input{
     font-family: "Brother", sans-serif;
     font-size: 1rem;
     margin-bottom: 4%
+}
+
+.peligro-error{
+    color: red;
+    font-size: 1rem;
 }

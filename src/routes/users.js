@@ -120,8 +120,9 @@ router.get('/login', usersController.login);
 router.post("/login", validationLogin, usersController.logueado);
 router.post("/", usersController.logout)
 router.get('/profile/:id', usersController.profile)
-router.post('/profile/:id', usersController.update)
+// router.post('/profile/:id', usersController.update)
 router.get("/editarUser/:id", usersController.editar)
+router.post("/editarUser/:id", usersController.update)
 
 
 
