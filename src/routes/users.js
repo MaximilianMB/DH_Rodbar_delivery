@@ -122,7 +122,7 @@ router.post("/", usersController.logout)
 router.get('/profile/:id', usersController.profile)
 // router.post('/profile/:id', usersController.update)
 router.get("/editarUser/:id", usersController.editar)
-router.post("/editarUser/:id", usersController.update)
+router.post("/editarUser/:id", upload.single("imagen"), usersController.update)
 
 
 
