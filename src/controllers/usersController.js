@@ -110,9 +110,10 @@ const usersController = {
                 if (error.length === 0) {
                     let updateFields = {
                         nombre: req.body.nombre,
-                        imagen: req.file.filename
                     };
-    
+                    if(req.file){
+                        updateFields.imagen = req.file.filename
+                    }
                     if (req.body.password1 && req.body.password2) {
                         updateFields.password = bcrypt.hashSync(req.body.password1, 10);
                     }

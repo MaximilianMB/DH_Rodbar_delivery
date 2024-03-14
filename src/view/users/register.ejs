@@ -35,19 +35,20 @@
                     <% }; %> 
                 </div>
                 <form class="formulario" method="POST" action="/register" enctype="multipart/form-data">
-                    <div class="barra"><input class="barra1" type="text" name="nombre" placeholder="Nombre" value="<%= typeof old != "undefined" ? old.nombre : "" %>"></div>
-                    <div class="barra"><input class="barra1" type="text" name="usuario" placeholder="Usuario" value="<%= typeof old != "undefined" ? old.usuario : "" %>"></div>
-                    <div class="barra"><input class="barra1" type="email" name="email" placeholder="E-mail" value="<%= typeof old != "undefined" ? old.email : "" %>"></div>
-                    <div class="barra"><input class="barra1" type="password" name="password" placeholder="Contraseña"></div>
-                    <div class="barra"><input class="barra1" type="password" name="repetir-password" placeholder="Repetir contraseña"></div>
-                    <div class="barra"><input class="barra2" type="file" name="imagen" placeholder="Imagen de perfil"></div>
-                    <div class="registro"><input class="boton-registro" type="submit" value="REGISTRARME"></div>
+                    <div class="barra"><input class="barra1" type="text" id="nombre" name="nombre" placeholder="Nombre" value="<%= typeof old != "undefined" ? old.nombre : "" %>"></div>
+                    <div class="barra"><input class="barra1" type="text" id="usuario" name="usuario" placeholder="Usuario" value="<%= typeof old != "undefined" ? old.usuario : "" %>"></div>
+                    <div class="barra"><input class="barra1" type="email" id="email" name="email" placeholder="E-mail" value="<%= typeof old != "undefined" ? old.email : "" %>"></div>
+                    <div class="barra"><input class="barra1" type="password" id="password" name="password" placeholder="Contraseña"></div>
+                    <div class="barra"><input class="barra1" type="password" id="password2"name="repetir-password" placeholder="Repetir contraseña"></div>
+                    <div class="barra"><input class="barra2" type="file" id="imagen" name="imagen" placeholder="Imagen de perfil"></div>
+                    <div class="registro"><input class="boton-registro" id="enviar" type="submit" value="REGISTRARME"></div>
                 </form>
             </div>
 
         </div>
     </main>
     <%- include("../partials/footer.ejs") %>
+    <script src="/js/validator.js"></script>
 </body>
 
 </html>

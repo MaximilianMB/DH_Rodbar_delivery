@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require("fs");
 const db = require("../database/models");
+const { validationResult } = require('express-validator');
 const sequelize = db.Sequelize;
 
 
@@ -29,6 +30,8 @@ const productsController = {
         })
     },
     nuevoProducto: (req, res)=>{
+        let errors = validationResult(req)
+        if (errors.isEmpty()){
         db.Product.create({
             nombre: req.body.nombre,
             ingredientes: req.body.ingredientes,
@@ -42,6 +45,9 @@ const productsController = {
             .catch(error =>{
                 res.send(error)
             })
+        }else{
+            res.render(path.join(__dirname, "../view/products/newProduct.ejs"),{errors: errors.errors , req:req})
+        }
     },
     administrar: (req,res)=>{
         db.Product.findAll({

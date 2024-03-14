@@ -7,12 +7,21 @@
     </header>
     <br>
     <main>
-        <form action="/newProduct" method="POST" enctype="multipart/form-data" >
+        <div class="errores">
+            <% if(typeof(errors) != "undefined"){ %>
+                <ul class="peligro-error">
+                    <% errors.forEach(error => { %>
+                        <li><%= error.msg %></li>
+                        <% }); %> 
+                </ul>
+            <% }; %> 
+        </div>
+        <form class="form-editar"action="/newProduct" method="POST" enctype="multipart/form-data" >
             <label for="nombre">Nombre del producto</label>
-            <input type="text" name="nombre" id="nombre">
+            <input type="text" name="nombre" id="nombre" value="<%= req.body.nombre %>">
             <br>
             <label for="ingredientes">Ingredientes</label>
-            <input type="text" name="ingredientes" id="ingredientes">
+            <input type="text" name="ingredientes" id="ingredientes" value="<%= req.body.ingredientes %>">
             <br>
             <div class="imagen">
             <label for="imagen">Imagen del producto</label>
@@ -20,10 +29,10 @@
             </div>
             <br>
             <label for="categoria">Categoria</label>
-            <input type="text" name="categoriaId" id="categoria">
+            <input type="text" name="categoriaId" id="categoria" value="<%= req.body.categoriaId %>">
             <br>
             <label for="precio">Precio</label>
-            <input type="text" name="precio" id="precio">
+            <input type="text" name="precio" id="precio" value="<%= req.body.precio %>">
             <br>
             <div class="botones">
             <input class="boton-crear" type="submit" value="Crear">

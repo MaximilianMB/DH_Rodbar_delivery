@@ -11,10 +11,10 @@ body{
 
 main{
     background-color: rgb(58, 3, 87);
-    height: 80vh;
+    height: 100vh;
 }
 
-form{
+.form-editar{
     color: white;
     display: flex;
     flex-direction: column;
@@ -23,7 +23,7 @@ form{
     font-size: 2rem;
     margin-top: 1%
 }
-form input{
+.form-editar input{
     height: 1.5rem;
     font-family: "Brother", sans-serif;
     font-size: 1.2rem;
@@ -51,4 +51,10 @@ footer{
 div .boton-crear input{
     width: 100%;
     background-color: rgb(250, 173, 41);
+}
+.peligro-error{
+    text-align: center;
+    color: rgb(250, 173, 41);
+    font-size: 1.2rem;
+    list-style-type: none;
 }

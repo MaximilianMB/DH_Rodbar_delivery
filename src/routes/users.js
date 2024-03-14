@@ -85,28 +85,7 @@ const validationLogin = [
             });
     }).withMessage("El email no está registrado en la base de datos"),
     check("password")
-        .isLength({ min: 6 }).withMessage("La contraseña debe tener al menos 6 caracteres"),
-    // body("password").custom(function (value, { req }) {
-    //     db.User.findOne({
-    //         where: {
-    //             email: req.body.email
-    //         }
-    //     })
-    //         .then(usuario =>{
-    //             console.log(usuario.password)
-    //             console.log(value);
-    //             if(!usuario){
-    //                 return Promise.reject()
-    //             }
-    //             let samePassword = bcrypt.compareSync(value, usuario.password);
-    //             if(samePassword){
-    //                 return true
-    //             }
-    //             return Promise.reject()
-    //         })
-    //         }
-        
-    // ).withMessage("La contraseña es incorrecta")
+        .isLength({ min: 6 }).withMessage("La contraseña debe tener al menos 6 caracteres")
 ]
 
 const validationProfile = [
