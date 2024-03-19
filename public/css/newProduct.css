@@ -28,6 +28,11 @@ main{
     font-family: "Brother", sans-serif;
     font-size: 1.2rem;
 }
+.error-front{
+    color: #FF7000;
+    text-align: center;
+    font-size: 1.5rem;
+}
 
 .imagen{
     width: 50%;

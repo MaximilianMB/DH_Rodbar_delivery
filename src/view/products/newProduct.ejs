@@ -19,9 +19,11 @@
         <form class="form-editar"action="/newProduct" method="POST" enctype="multipart/form-data" >
             <label for="nombre">Nombre del producto</label>
             <input type="text" name="nombre" id="nombre" value="<%= req.body.nombre %>">
+            <div id="errorNombre" class="error"></div>
             <br>
             <label for="ingredientes">Ingredientes</label>
             <input type="text" name="ingredientes" id="ingredientes" value="<%= req.body.ingredientes %>">
+            <div id="errorIngredientes" class="error"></div>
             <br>
             <div class="imagen">
             <label for="imagen">Imagen del producto</label>
@@ -30,17 +32,20 @@
             <br>
             <label for="categoria">Categoria</label>
             <input type="text" name="categoriaId" id="categoria" value="<%= req.body.categoriaId %>">
+            <div id="errorCategoria" class="error"></div>
             <br>
             <label for="precio">Precio</label>
             <input type="text" name="precio" id="precio" value="<%= req.body.precio %>">
+            <div id="errorPrecio" class="error"></div>
             <br>
             <div class="botones">
             <input class="boton-crear" type="submit" value="Crear">
-            <input class="boton-crear"type="reset" value="Borrar" >
+            <input class="boton-crear" type="reset" value="Borrar" >
             </div>
         </form>
     </main>
     <%- include("../partials/footer.ejs") %>
+    <script src="/js/Product/ValidatorCrearProducto.js"></script>
 </body>
 
 </html>

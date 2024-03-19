@@ -22,8 +22,10 @@
                     <% }; %> 
                 </div>
                 <form class="formulario" action="/login" method="POST">
-                    <div class="barra"><input class="barra2" type="email" name="email" placeholder="E-mail" value="<%= typeof old != "undefined" ? old.email : "" %>"></div>
-                    <div class="barra"><input class="barra2" type="password" name="password" placeholder="Contraseña"></div>
+                    <div class="barra"><input class="barra2" type="email" id="email" name="email" placeholder="E-mail" value="<%= typeof old != "undefined" ? old.email : "" %>"></div>
+                    <div id="errorEmail" class="error"></div>
+                    <div class="barra"><input class="barra2" type="password" id= "password" name="password" placeholder="Contraseña"></div>
+                    <div id="errorPassword" class="error"></div>
                     <div class="checkbox"><input class="boxx" type="checkbox" name="recordarme" id = "recordarme">
                     <label class="recordarme" for="recordarme">Recordarme</label>
                     </div>
@@ -48,6 +50,7 @@
         </div>
     </main>
     <%- include("../partials/footer.ejs") %>
+    <script src="/js/User/ValidatorLogin.js"></script>
 </body>
 
 </html>

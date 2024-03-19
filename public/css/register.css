@@ -196,6 +196,10 @@ input.boton-gmail{
     height: 25%;
     color: red;
 }
+.error-front{
+    color: red;
+    margin: auto
+}
 .registro{
     height: 25%;
     width: 40%;

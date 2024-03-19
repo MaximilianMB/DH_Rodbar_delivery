@@ -36,10 +36,15 @@
                 </div>
                 <form class="formulario" method="POST" action="/register" enctype="multipart/form-data">
                     <div class="barra"><input class="barra1" type="text" id="nombre" name="nombre" placeholder="Nombre" value="<%= typeof old != "undefined" ? old.nombre : "" %>"></div>
+                    <div id="errorNombre" class="error"></div>
                     <div class="barra"><input class="barra1" type="text" id="usuario" name="usuario" placeholder="Usuario" value="<%= typeof old != "undefined" ? old.usuario : "" %>"></div>
+                    <div id="errorUsuario" class="error"></div>
                     <div class="barra"><input class="barra1" type="email" id="email" name="email" placeholder="E-mail" value="<%= typeof old != "undefined" ? old.email : "" %>"></div>
+                    <div id="errorEmail" class="error"></div>
                     <div class="barra"><input class="barra1" type="password" id="password" name="password" placeholder="Contraseña"></div>
+                    <div id="errorPassword" class="error"></div>
                     <div class="barra"><input class="barra1" type="password" id="password2"name="repetir-password" placeholder="Repetir contraseña"></div>
+                    <div id="errorPassword2" class="error"></div>
                     <div class="barra"><input class="barra2" type="file" id="imagen" name="imagen" placeholder="Imagen de perfil"></div>
                     <div class="registro"><input class="boton-registro" id="enviar" type="submit" value="REGISTRARME"></div>
                 </form>
@@ -48,7 +53,7 @@
         </div>
     </main>
     <%- include("../partials/footer.ejs") %>
-    <script src="/js/validator.js"></script>
+    <script src="/js/User/ValidatorRegister.js"></script>
 </body>
 
 </html>

@@ -210,6 +210,10 @@ input.boton-registro {
     display: flex;
     justify-content: center;
 }
+.error-front{
+    color: #FF7000;
+    text-align: center;
+}
 .peligro-error{
     height: 25%;
     color: red;
