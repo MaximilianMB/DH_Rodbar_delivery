@@ -13,7 +13,7 @@ window.onload = function () {
     let errorCategoria = document.querySelector("#errorCategoria")
     let errorPrecio = document.querySelector("#errorPrecio")
 
-    let errores = ["errorNombre", "errorIngredientes", "errorCategoria","errorPrecio"]
+    let errores = []
 
     formNombre.focus()
 
