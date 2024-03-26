@@ -33,13 +33,13 @@ export class Category extends Component {
 
     render() {
         return (
-            <div>
-                <div>
-                    <div>
-                        <h5 onMouseEnter={()=>{this.cambiarColor()}} onMouseLeave={()=>{this.volverColor()}} className="m-0 font-weight-bold text-gray-800">{this.props.titulo}</h5>
+            <div className='categoria-tarjeta-grande'>
+                <div className='categoria-tarjeta-chica'>
+                    <div className='categoria-titulo'>
+                        <h4 onMouseEnter={()=>{this.cambiarColor()}} onMouseLeave={()=>{this.volverColor()}}>Categorias</h4>
                     </div>
-                    <div>
-                        <div>
+                    <div className='categorias-tarjetas'>
+                        <div className='categorias-tarjetas-columnas'>
                             {this.state.categoryList.map((category, index) => {
                                 return <CategoryCard color={this.state.color} key={index} nombre={category.nombre}/>
                             })}

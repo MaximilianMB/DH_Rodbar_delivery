@@ -1,16 +1,23 @@
+*{
+  box-sizing: border-box;
+}
+
 #root {
   text-align: center;
   width: 100%;
+  background-color: rgb(58, 3, 87);
 }
 
 .contenedor-principal {
   display: flex;
+  height: 100%;
 }
 
 .contenedor-1 {
   width: 15%;
   margin-left: 10;
-  background-color: rgb(58, 3, 87);
+  background-color: rgb(250, 173, 41);
+  
 }
 
 .contenedor-2 {
@@ -18,7 +25,8 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin: 0
+  margin: 0;
+  height: 100%;
 }
 
 ul {
@@ -37,20 +45,42 @@ ul {
 .titulo-dash {
   text-align: start;
   font-size: 1.5rem;
+  color: black
 }
 
 .cartas-info {
   display: flex;
-  justify-content: space-around;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  justify-content:space-around;
+  margin-top: 2%;
+  margin-bottom: 5%;
   width: 100%
 }
 
+.carta-1{
+  width: 30%;
+  height: 100%;
+  border-radius: 4%;
+  border-left: 0.25rem solid #007bff;
+  border-radius: 4%;
+}
+
+.carta-2{
+  width: 30%;
+  height: 100%;
+  border-left: 0.25rem solid #1ea534;
+  border-radius: 4%;
+}
+
+.carta-3{
+  width: 30%;
+  height: 100%;
+  border-left: 0.25rem solid #6c134a;
+  border-radius: 4%;
+}
+
 .tarjeta {
-  flex: 0 0 33.333333%;
-  margin-bottom: 1.5rem;
-  width: 100%
+  width: 100%;
+  height: 100%;
 }
 
 .tarjeta .primera {
@@ -60,13 +90,13 @@ ul {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-left: 0.25rem solid #007bff;
   /* Cambia "primary" por el color deseado o utiliza una variable CSS */
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   height: 100%;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  width: 100%
+  width: 100%;
+  border-radius: 0.25rem;
 }
 
 .tarjeta .primera .card-body {
@@ -114,10 +144,114 @@ ul {
   font-size: 2rem;
   color: #e2e2e2;
 }
+.tarjeta-ultimo-producto{
+  width: 90%;
+  margin: auto;
+  margin-top: 2.5%;
+}
+.card-ultimo-producto-1{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.titulo-ultimo-producto{
+  text-align: start;
+  border: 4px solid rgb(111, 31, 118);
+  padding-left: 1%;
+  color: black;
+  background-color: rgb(234, 202, 231);
+  border-radius: 15px
+}
 
-.carta-1 {
+.card-ultimo-producto-2{
+  width: 100%;
+  background-color: #9c71a7;
+  padding: 2%;
+  border-radius: 10px;
+  border: 4px solid rgb(111, 31, 118);
+}
+
+.card-ultimo-producto-2 img{
+  width: 80%;
+}
+
+.card-ultimo-producto-3{
+  width: 100%;
+  background-color: rgb(234, 202, 231);
+  padding: 2%;
+  border-radius: 10px;
+  border: 4px solid rgb(111, 31, 118);
+  color: black
+}
+
+.categoria-tarjeta-grande{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+
+.categoria-tarjeta-chica{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.categoria-titulo{
+  text-align: start;
+  padding-left: 2%;
+  border: 4px solid rgb(111, 31, 118);
+  border-radius: 10px;
+  background-color: #9c71a7;
+}
+
+.categoria-titulo h4{
+  font-size: 1.5rem;
+  color: black
+}
+
+.categorias-tarjetas{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  border: 4px solid rgb(111, 31, 118);
+  background-color: #9c71a7;
+}
+
+.categorias-tarjetas-columnas{
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  margin-right: -.75rem;
-  margin-left: -.75rem
+  justify-content: space-around;
+  margin: 1%
+}
+
+.tarjetitas{
+  width: 45%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  margin: 1%;
+  padding: 1%;
+  border-radius: 5px;
+  background-color: grey;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  font-size: 1.5rem;
+  color: black;  
+}
+
+footer{
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
+table{
+  background-color: #9c71a7;
+  color: black
 }

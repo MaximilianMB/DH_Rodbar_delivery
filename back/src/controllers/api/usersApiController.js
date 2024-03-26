@@ -11,6 +11,7 @@ const apiUsersController = {
                     id: user.id,
                     nombre: user.nombre,
                     email: user.email,
+                    rolId: user.rolId,
                     detail: "http://localhost:3001/api/users/"+ user.id
 
                 }))

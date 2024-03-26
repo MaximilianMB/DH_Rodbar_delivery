@@ -17,7 +17,7 @@ export class Products extends Component {
     }
     render() {
         return (
-            <div style={{width: "80%", margin: "auto"}}>
+            <div style={{width: "80%", margin: "auto", color:"white", marginTop:"3%"}}>
                 {this.state.productList.map((product) => {
                     return <ProductCard id={product.id} nombre={product.nombre} ingredientes={product.ingredientes} precio={product.precio} showHeader={product.id === 1}/>
                 })}

@@ -1,6 +1,9 @@
 import React from 'react'
 import { CardTop } from './CardTop'
 import { useEffect, useState } from 'react'
+import { IoFastFood } from "react-icons/io5";
+import { FaUserCheck } from "react-icons/fa";
+import { MdOutlineCategory } from "react-icons/md";
 
 export const TopBar = () => {
 
@@ -34,21 +37,21 @@ export const TopBar = () => {
         titulo: "Productos en la base de datos",
         colorBorde: "primary",
         cifra: productList.total,
-        icono: "fa-film"
+        icono: <IoFastFood />
     }
 
     let cardUser = {
         titulo: "Usuarios en la base de datos",
         colorBorde: "primary",
         cifra: userList.total,
-        icono: "fa-film"
+        icono: <FaUserCheck />
     }
 
     let cardCategory = {
         titulo: "Categorias en la base de datos",
         colorBorde: "primary",
         cifra: categoryList.total,
-        icono: "fa-film"
+        icono: <MdOutlineCategory />
     }
 
     console.log(cardProduct.cifra)

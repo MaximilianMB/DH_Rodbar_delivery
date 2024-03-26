@@ -1,5 +1,4 @@
 import React from 'react'
-import { IoFastFood } from "react-icons/io5";
 
 export const CardTop = (props) => {
     return (
@@ -12,7 +11,7 @@ export const CardTop = (props) => {
                             <div className="cifra-tarjeta">{props.cifra}</div>
                         </div>
                         <div className="icono-tarjeta">
-                            <i className="icono"><IoFastFood /></i>
+                            <i className="icono">{props.icono}</i>
                         </div>
                     </div>
                 </div>

@@ -8,7 +8,7 @@ export const ContentRight = () => {
     return (
         <div>
             <TopBar/>
-            <LastProduct/>
+            <LastProduct />
             <Category/>
             <Products/>
         </div>
